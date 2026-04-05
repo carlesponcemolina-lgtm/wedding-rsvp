@@ -476,7 +476,10 @@
       /* ── Schedule: single column, 6vw gutter ── */
       .schedule { padding: 3rem 0 2rem; overflow: hidden; }
       .schedule__label-vert { display: none; }
-      .schedule__deco { display: none; }
+      .schedule__deco {
+        width: 70%; height: 40%; bottom: -15%;
+        z-index: 0;
+      }
       .schedule__row,
       .schedule__row--flip {
         grid-template-columns: 1fr;
@@ -484,8 +487,6 @@
         padding: 0 6vw;
         margin-bottom: 3rem;
       }
-      .schedule__row .schedule__events { order: 1; }
-      .schedule__row .schedule__photos-pair { order: 2; }
       /* Photos pair: tall + small side by side (Shiro: 54% + 32%) */
       .schedule__photos-pair {
         grid-template-columns: 1.7fr 1fr;
@@ -793,11 +794,9 @@
 
     const n = form.nombre.value.trim();
     const a = form.apellidos.value.trim();
-    const em = form.email.value.trim();
     const at = form.asistencia?.value;
 
     if (!n || !a) return err('Por favor, introduce tu nombre completo.');
-    if (!em) return err('Por favor, introduce tu email.');
     const bu = form.bus?.value;
     if (!at) return err('Por favor, indica si asistirás.');
     if (!bu) return err('Por favor, indica tu interés en el bus.');
