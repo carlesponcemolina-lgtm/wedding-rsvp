@@ -443,6 +443,14 @@
       .hero__date {
         font-size: 16px; letter-spacing: 3.2px;
       }
+      .hero__content {
+        display: flex; flex-direction: column; align-items: center;
+      }
+      .hero__date { order: 2; }
+      .hero__mountain {
+        order: 1;
+        margin-top: 1rem; margin-bottom: 1.5rem;
+      }
       .hero__mountain img {
         width: 90vw !important; max-width: 450px;
       }
@@ -476,6 +484,8 @@
         padding: 0 6vw;
         margin-bottom: 3rem;
       }
+      .schedule__row .schedule__events { order: 1; }
+      .schedule__row .schedule__photos-pair { order: 2; }
       /* Photos pair: tall + small side by side (Shiro: 54% + 32%) */
       .schedule__photos-pair {
         grid-template-columns: 1.7fr 1fr;
