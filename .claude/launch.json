@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "wedding",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "/Users/carlesponcemolina/wedding-rsvp", "-l", "3456"],
+      "port": 3456
+    }
+  ]
+}
