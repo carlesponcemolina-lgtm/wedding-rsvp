@@ -76,13 +76,13 @@
   <img src="matrix.png" alt="" style="width:clamp(200px, 30vw, 350px); height:auto; margin:2rem 0;">
 
   <div style="display:flex; gap:3rem;">
-    <a href="index.html#rsvp" style="font-size:clamp(1.5rem,4vw,2.5rem); font-weight:300; letter-spacing:0.15em; text-transform:uppercase; color:#fff; text-decoration:none; border-bottom:1px solid rgba(255,255,255,0.3); padding-bottom:4px; transition:opacity 0.3s;" onmouseover="this.style.opacity='0.5'" onmouseout="this.style.opacity='1'">Si</a>
+    <a href="#" id="siBtn" style="font-size:clamp(1.5rem,4vw,2.5rem); font-weight:300; letter-spacing:0.15em; text-transform:uppercase; color:#fff; text-decoration:none; border-bottom:1px solid rgba(255,255,255,0.3); padding-bottom:4px; transition:opacity 0.3s;" onmouseover="this.style.opacity='0.5'" onmouseout="this.style.opacity='1'">Si</a>
     <a href="#" id="noBtn" style="font-size:clamp(1.5rem,4vw,2.5rem); font-weight:300; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.3); text-decoration:none; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:4px; transition:opacity 0.3s;" onmouseover="this.style.opacity='0.5'" onmouseout="this.style.opacity='1'">No</a>
   </div>
 
   <!-- Video overlay -->
   <div class="video-overlay" id="videoOverlay">
-    <video id="noVideo" src="no-video.mp4" playsinline></video>
+    <video id="theVideo" playsinline></video>
   </div>
 
   <script>
@@ -90,16 +90,25 @@
       window.location.href = 'index.html';
     }
 
-    // "No" button plays video, then redirects to RSVP
-    document.getElementById('noBtn').addEventListener('click', function(e) {
-      e.preventDefault();
+    function playAndRedirect(videoSrc) {
       const overlay = document.getElementById('videoOverlay');
-      const video = document.getElementById('noVideo');
+      const video = document.getElementById('theVideo');
+      video.src = videoSrc;
       overlay.classList.add('active');
       video.play();
       video.addEventListener('ended', function() {
         window.location.href = 'index.html#rsvp';
       });
+    }
+
+    document.getElementById('siBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      playAndRedirect('si-video.mp4');
+    });
+
+    document.getElementById('noBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      playAndRedirect('no-video.mp4');
     });
   </script>
 </body>
