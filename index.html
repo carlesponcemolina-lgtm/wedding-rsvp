@@ -702,6 +702,20 @@
       </div>
 
       <div class="f">
+        <label class="f__label">Menú <em>(obligatorio)</em></label>
+        <div class="radio-group">
+          <div class="radio-option">
+            <input type="radio" id="m-normal" name="menu" value="Normal" required>
+            <label for="m-normal">Normal</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="m-vegano" name="menu" value="Vegano">
+            <label for="m-vegano">Vegano</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="f">
         <label class="f__label">Alergias o intolerancias <em>(opcional)</em></label>
         <textarea class="f__input" id="alergias" name="alergias" placeholder="Indicad aquí si tenéis alguna alergia o intolerancia alimentaria"></textarea>
       </div>
@@ -821,6 +835,7 @@
           numInvitados: at === 'Si' ? (1 + guests.length).toString() : '-',
           acompanantes: guests.length ? guests.join(', ') : '-',
           bus: bu,
+          menu: form.menu?.value || '-',
           alergias: form.alergias.value.trim() || '-',
           mensaje: form.mensaje.value.trim() || '-'
         })
